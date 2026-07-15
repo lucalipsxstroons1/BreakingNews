@@ -1,0 +1,15 @@
+<section class="filter">
+  <mat-form-field>
+    <mat-label> Search news </mat-label>
+
+    <input matInput [(ngModel)]="searchText" />
+  </mat-form-field>
+
+  <mat-button-toggle-group>
+    @for (category of categories; track category) {
+      <mat-button-toggle (click)="changeCategory(category)">
+        {{ category }}
+      </mat-button-toggle>
+    }
+  </mat-button-toggle-group>
+</section>
