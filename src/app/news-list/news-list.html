@@ -1,0 +1,9 @@
+<section>
+  <app-filter (filterChanged)="filterChanged($event)" />
+</section>
+
+<div class="news-grid">
+  @for (article of articles; track article.id) {
+    <app-news-card [article]="article" />
+  }
+</div>
