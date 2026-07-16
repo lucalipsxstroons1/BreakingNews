@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { NewsCard } from '../news-card/news-card';
 import { Filter } from '../filter/filter';
-import { Article } from '../news-data';
-import { NewsService } from '../news-service';
+import { Article } from '../../models/article.model';
+import { NewsService } from '../../services/news-service';
 
 @Component({
   selector: 'app-news-list',
@@ -14,21 +14,17 @@ import { NewsService } from '../news-service';
 export class NewsList {
   private newsService = inject(NewsService);
 
-  articles: Article[] = [];
+  // articles: Article[] = [];
 
   constructor() {
-    this.newsService.articles$.subscribe((articles: Article[]) => {
-      this.articles = articles;
-    });
-
-    this.newsService.loadArticles();
+    this.articles = this.newsService.getAllArticles();
   }
 
   filterChanged(value: string): void {
     if (value === 'All') {
-      this.newsService.loadArticles();
+      this.articles = this.newsService.getAllArticles();
     } else {
-      this.newsService.loadArticles(undefined, value);
+      this.articles = this.newsService.filterByCategory(value);
     }
   }
 }
