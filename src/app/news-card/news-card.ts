@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
-import { Article } from '../models/article.model';
+import { NewsData } from '../news-data';
 
 @Component({
   selector: 'app-news-card',
@@ -11,6 +11,5 @@ import { Article } from '../models/article.model';
   styleUrl: './news-card.css',
 })
 export class NewsCard {
-  @Input({ required: true })
-  article!: Article;
+  // @Input({ required: true });
 }
