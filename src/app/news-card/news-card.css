@@ -1,9 +1,19 @@
 .news-card {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
-  height: 200px;
+  height: 140px;
 
   object-fit: cover;
+}
+
+mat-card-content p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

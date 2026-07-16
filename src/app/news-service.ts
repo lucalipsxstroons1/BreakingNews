@@ -79,12 +79,4 @@ export class NewsService {
   public getArticleByUri(uri: string): Article | undefined {
     return this.articlesSubject.value.find((article) => article.uri === uri);
   }
-
-  public filterByCategory(categoryUri: string): void {
-    // Wir filtern die aktuell geladenen Artikel im State
-    const filteredArticles = this.articlesSubject.value.filter(
-      (article) => article.source.uri === categoryUri,
-    );
-    this.articlesSubject.next(filteredArticles);
-  }
 }

@@ -4,6 +4,13 @@ import { Filter } from '../filter/filter';
 import { Article } from '../news-data';
 import { NewsService } from '../news-service';
 
+// Event Registry erwartet dmoz-Kategorie-URIs, keine UI-Labels.
+const CATEGORY_URIS: Record<string, string> = {
+  Tech: 'dmoz/Computers',
+  Business: 'dmoz/Business',
+  Sports: 'dmoz/Sports',
+};
+
 @Component({
   selector: 'app-news-list',
   standalone: true,
@@ -24,11 +31,11 @@ export class NewsList {
     this.newsService.loadArticles();
   }
 
-  filterChanged(value: string): void {
-    if (value === 'All') {
-      this.newsService.loadArticles();
-    } else {
-      this.newsService.filterByCategory(value);
-    }
+  filterChanged(category: string): void {
+    this.newsService.loadArticles(undefined, CATEGORY_URIS[category]);
+  }
+
+  searchChanged(term: string): void {
+    this.newsService.loadArticles(term);
   }
 }

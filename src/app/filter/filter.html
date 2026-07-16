@@ -2,7 +2,7 @@
   <mat-form-field>
     <mat-label> Search news </mat-label>
 
-    <input matInput [(ngModel)]="searchText" />
+    <input matInput [(ngModel)]="searchText" (keyup.enter)="searchCategory()" />
   </mat-form-field>
 
   <mat-button-toggle-group>

@@ -15,11 +15,18 @@ export class Filter {
   @Output()
   filterChanged = new EventEmitter<string>();
 
+  @Output()
+  searchChanged = new EventEmitter<string>();
+
   categories = ['All', 'Tech', 'Business', 'Sports'];
 
   searchText = '';
 
   changeCategory(category: string): void {
     this.filterChanged.emit(category);
+  }
+
+  searchCategory(): void {
+    this.searchChanged.emit(this.searchText);
   }
 }
