@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { Article } from '../models/article.model';
+
+import { NewsData } from '../news-data';
 import { NewsService } from '../news-service';
 
 @Component({
@@ -22,8 +23,8 @@ export class NewsDetail {
   article?: NewsData;
 
   constructor() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const uri = this.route.snapshot.paramMap.get('id') ?? '';
 
-    this.article = this.newsService.getArticleById(id);
+    this.article = this.newsService.getArticleByUri(uri);
   }
 }
