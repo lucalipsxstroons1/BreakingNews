@@ -1,30 +1,32 @@
-<!-- <mat-card>
-  @if (article) {
-    <img mat-card-image [src]="article.image" />
+<div>
+  <mat-card>
+    @if (article) {
+      <img mat-card-image [src]="article.image" />
 
-    <mat-card-header>
-      <mat-card-title>
-        {{ article.title }}
-      </mat-card-title>
+      <mat-card-header>
+        <mat-card-title>
+          {{ article.title }}
+        </mat-card-title>
 
-      <mat-card-subtitle>
-        {{ article.source.title }}
-      </mat-card-subtitle>
-    </mat-card-header>
+        <mat-card-subtitle>
+          {{ article.source.title }}
+        </mat-card-subtitle>
+      </mat-card-header>
 
-    <mat-card-content>
-      <p>
-        {{ article.body }}
-      </p>
+      <mat-card-content>
+        <p>
+          {{ article.body }}
+        </p>
 
-      <p>
-        {{ article.date }}
-      </p>
-    </mat-card-content>
+        <p>
+          {{ article.date }}
+        </p>
+      </mat-card-content>
 
-    <mat-card-actions>
-      <a mat-button routerLink="/"> Back </a>
-      <a mat-button [href]="article.url" target="_blank" rel="noopener"> Original lesen </a>
-    </mat-card-actions>
-  }
-</mat-card> -->
+      <mat-card-actions>
+        <a mat-button routerLink="/"> Back </a>
+        <a mat-button [href]="article.url" target="_blank" rel="noopener"> Original lesen </a>
+      </mat-card-actions>
+    }
+  </mat-card>
+</div>
