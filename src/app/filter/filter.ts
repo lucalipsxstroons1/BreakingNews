@@ -18,7 +18,20 @@ export class Filter {
   @Output()
   searchChanged = new EventEmitter<string>();
 
-  categories = ['All', 'Tech', 'Business', 'Sports'];
+  categories = [
+    'All',
+    'Tech',
+    'Business',
+    'Sports',
+    'Health',
+    'Science',
+    'Entertainment',
+    'World',
+    'Politics',
+    'Travel',
+    'Food',
+    'Lifestyle',
+  ];
 
   searchText = '';
 

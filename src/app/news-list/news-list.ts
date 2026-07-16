@@ -4,11 +4,26 @@ import { Filter } from '../filter/filter';
 import { Article } from '../news-data';
 import { NewsService } from '../news-service';
 
-// Event Registry erwartet dmoz-Kategorie-URIs, keine UI-Labels.
+// Event Registry erwartet Kategorie-URIs, keine UI-Labels. Die "dmoz"-Taxonomie hat praktisch
+// keine deutschsprachige Abdeckung (categoryUri=dmoz/* + lang=deu liefert 0 Treffer), daher wird
+// hier die "news"-Taxonomie verwendet, die für deutsche Artikel tatsächlich befüllt ist.
 const CATEGORY_URIS: Record<string, string> = {
-  Tech: 'dmoz/Computers',
-  Business: 'dmoz/Business',
-  Sports: 'dmoz/Sports',
+  Tech: 'news/Technology',
+  Business: 'news/Business',
+  Sports: 'news/Sports',
+  Health: 'news/Health',
+  Science: 'news/Science',
+  Entertainment: 'news/Arts_and_Entertainment',
+  Politics: 'news/Politics',
+};
+
+// Für diese Labels gibt es weder in "dmoz" noch in "news" eine passende Kategorie-URI,
+// daher wird ersatzweise per Stichwort gesucht.
+const CATEGORY_KEYWORDS: Record<string, string> = {
+  World: 'Welt',
+  Travel: 'Reisen',
+  Food: 'Essen',
+  Lifestyle: 'Lifestyle',
 };
 
 @Component({
@@ -32,7 +47,13 @@ export class NewsList {
   }
 
   filterChanged(category: string): void {
-    this.newsService.loadArticles(undefined, CATEGORY_URIS[category]);
+    if (category in CATEGORY_URIS) {
+      this.newsService.loadArticles(undefined, CATEGORY_URIS[category]);
+    } else if (category in CATEGORY_KEYWORDS) {
+      this.newsService.loadArticles(CATEGORY_KEYWORDS[category]);
+    } else {
+      this.newsService.loadArticles();
+    }
   }
 
   searchChanged(term: string): void {
