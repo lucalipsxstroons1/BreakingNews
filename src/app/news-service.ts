@@ -72,4 +72,11 @@ export class NewsService {
         },
       });
   }
+
+  /**
+   * Sucht einen Artikel anhand seiner uri im aktuell geladenen Bestand.
+   */
+  public getArticleByUri(uri: string): Article | undefined {
+    return this.articlesSubject.value.find((article) => article.uri === uri);
+  }
 }

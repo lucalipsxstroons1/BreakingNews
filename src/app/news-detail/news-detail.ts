@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { Article } from '../models/article.model';
+import { Article } from '../news-data';
 import { NewsService } from '../news-service';
 
 @Component({
   selector: 'app-news-detail',
   standalone: true,
 
-  imports: [MatCardModule, RouterLink],
+  imports: [RouterLink, MatCardModule],
 
   templateUrl: './news-detail.html',
 
@@ -22,8 +22,8 @@ export class NewsDetail {
   article?: Article;
 
   constructor() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const uri = this.route.snapshot.paramMap.get('id') ?? '';
 
-    this.article = this.newsService.getArticleById(id);
+    this.article = this.newsService.getArticleByUri(uri);
   }
 }

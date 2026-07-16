@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
-import { Article } from '../models/article.model';
+import { Article } from '../news-data';
 
 @Component({
   selector: 'app-news-card',
