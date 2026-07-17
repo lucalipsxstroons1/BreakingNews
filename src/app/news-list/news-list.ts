@@ -19,6 +19,12 @@ const CATEGORY_KEYWORDS: Record<string, string> = {
   Travel: 'Reisen',
   Food: 'Essen',
   Lifestyle: 'Lifestyle',
+  Environment: 'Umwelt',
+  Education: 'Bildung',
+  Gaming: 'Gaming',
+  Automotive: 'Auto',
+  Culture: 'Kultur',
+  Weather: 'Wetter',
 };
 
 @Component({

@@ -1,9 +1,26 @@
 .filter {
   display: flex;
-
   flex-direction: column;
+  gap: 16px;
 
-  gap: 20px;
-
+  margin: 20px 12px;
   padding: 20px;
+
+  background-color: var(--mat-sys-surface-container);
+  border-radius: 16px;
+}
+
+.filter mat-form-field {
+  width: 100%;
+}
+
+.filter mat-button-toggle-group {
+  flex-wrap: nowrap;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.filter mat-button-toggle-group mat-button-toggle {
+  flex-shrink: 0;
 }

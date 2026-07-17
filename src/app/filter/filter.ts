@@ -31,6 +31,12 @@ export class Filter {
     'Travel',
     'Food',
     'Lifestyle',
+    'Environment',
+    'Education',
+    'Gaming',
+    'Automotive',
+    'Culture',
+    'Weather',
   ];
 
   searchText = '';
